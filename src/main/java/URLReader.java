@@ -21,14 +21,6 @@ public class URLReader {
         in.close();
         JSONParser jParser = new JSONParser();
         return (JSONObject) jParser.parse(inputLine);
-//        Object obj=JSONValue.parse(inputLine);
-//        JSONObject jsonObject = (JSONObject) obj;
-//
-//        String name = (String) jsonObject.get("weather");
-//        double salary = (Double) jsonObject.get("main");
-//        long age = (Long) jsonObject.get("age");
-//        System.out.println(name+" "+salary+" "+age);
-//        System.out.println(name);
 
     }
 
@@ -55,13 +47,13 @@ public class URLReader {
         String city = "Lviv";
         URLReader reader = new URLReader();
         JSONObject data = reader.parser(city);
-        System.out.println(data);
+
 
         double tempC = Double.parseDouble(reader.getTemp(data)) - 273.15;
-        System.out.println("temperature in Kelvin:" + reader.getTemp(data));
-        System.out.println("temperature in Celsius:" + tempC);
-        System.out.println("visibility" + reader.getVis(data));
-
+        System.out.println("temperature in Kelvin: " + reader.getTemp(data));
+        System.out.println("temperature in Celsius: " + tempC);
+        System.out.println("visibility " + reader.getVis(data));
+        System.out.println("weather " + reader.getDes(data));
     }
 
 }
